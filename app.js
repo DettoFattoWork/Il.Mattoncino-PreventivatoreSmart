@@ -9,7 +9,8 @@ let contatorePrevenetivo = 1;
 // Funzione per caricare il database dal CSV
 async function caricaDatabase() {
     try {
-        const response = await fetch('attached_assets/database_edile_completo_1759919082996.csv');
+        const response = await // fetch disabilitato
+// fetch('attached_assets/database_edile_completo_1759919082996.csv');
         const csvText = await response.text();
         const lines = csvText.split('\n');
         const headers = lines[0].split(',');
@@ -815,4 +816,20 @@ async function generaPDF() {
         console.error('Errore generazione PDF:', error);
         alert('Errore durante la generazione del PDF. Riprova.');
     }
+}
+
+const LOGIN_USER = "mattoncino";
+const LOGIN_PASS = "mattoncino123";
+
+document.getElementById("loginError").style.display = "none";
+
+function login() {
+  const u = document.getElementById("username").value;
+  const p = document.getElementById("password").value;
+  if (u === LOGIN_USER && p === LOGIN_PASS) {
+    document.getElementById("loginBox").style.display = "none";
+    document.getElementById("app").style.display = "block";
+  } else {
+    document.getElementById("loginError").style.display = "block";
+  }
 }

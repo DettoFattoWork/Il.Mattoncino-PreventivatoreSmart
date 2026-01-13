@@ -450,3 +450,25 @@ select.form-control {
     width: 100%;
   }
 }
+
+#loginBox {
+  max-width: 360px;
+  margin: 120px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  text-align: center;
+}
+#loginBox input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+}
+#loginBox button {
+  padding: 10px 20px;
+}
+#loginError {
+  color: red;
+  display: none;
+}
