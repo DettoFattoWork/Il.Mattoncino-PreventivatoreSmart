@@ -190,8 +190,7 @@ function impostaEventListeners() {
         descrizioneSelect.addEventListener('change', function() {
             const selectedOption = this.options[this.selectedIndex];
             if (selectedOption && selectedOption.dataset.prezzo) {
-                document.getElementById('prezzoUnitario').value = selectedOption.dataset.prezzo;
-                document.getElementById('unitaMisura').value = selectedOption.dataset.um || '';
+document.getElementById('unitaMisura').value = selectedOption.dataset.um || '';
             }
         });
     }
@@ -229,11 +228,9 @@ function impostaEventListeners() {
         includiIva.addEventListener('change', function() {
             if (this.checked) {
                 ivaSettings.classList.remove('hidden');
-                document.getElementById('rigaIva').classList.remove('hidden');
-            } else {
+} else {
                 ivaSettings.classList.add('hidden');
-                document.getElementById('rigaIva').classList.add('hidden');
-            }
+}
             calcolaTotali();
         });
     }
@@ -353,10 +350,7 @@ function rimuoviVoce(index) {
 
 function calcolaTotali() {
     const totaleImponibile = vociPreventivo.reduce((sum, voce) => sum + voce.importo, 0);
-    
-    document.getElementById('totaleImponibile').textContent = formatCurrency(totaleImponibile);
-    
-    const includiIva = document.getElementById('includiIva').checked;
+const includiIva = document.getElementById('includiIva').checked;
     let totaleFinale = totaleImponibile;
     
     if (includiIva) {
@@ -367,21 +361,14 @@ function calcolaTotali() {
         
         const importoIva = totaleImponibile * (percentuale / 100);
         totaleFinale = totaleImponibile + importoIva;
-        
-        document.getElementById('labelPercentualeIva').textContent = percentuale;
-        document.getElementById('totaleIva').textContent = formatCurrency(importoIva);
+document.getElementById('totaleIva').textContent = formatCurrency(importoIva);
     }
-    
-    document.getElementById('totaleFinale').textContent = formatCurrency(totaleFinale);
 }
 
 function pulisciCampiMateriali() {
-    document.getElementById('descrizionePersonalizzata').value = '';
-    document.getElementById('quantita').value = '';
-    document.getElementById('prezzoUnitario').value = '';
-    document.getElementById('sconto').value = '0';
-    document.getElementById('categoria').value = '';
-    resetSottocategorieFields();
+document.getElementById('quantita').value = '';
+document.getElementById('sconto').value = '0';
+resetSottocategorieFields();
 }
 
 function nuovoPreventivo() {
@@ -393,16 +380,10 @@ function nuovoPreventivo() {
     
     vociPreventivo = [];
     contatorePrevenetivo++;
-    
-    document.getElementById('numeroPreventivo').value = String(contatorePrevenetivo).padStart(3, '0');
-    document.getElementById('nomeCliente').value = '';
-    document.getElementById('indirizzoCliente').value = '';
-    document.getElementById('telefonoCliente').value = '';
-    document.getElementById('emailCliente').value = '';
-    document.getElementById('cfPivaCliente').value = '';
-    document.getElementById('titoloPreventivo').value = '';
-    
-    aggiornaTabella();
+document.getElementById('nomeCliente').value = '';
+document.getElementById('telefonoCliente').value = '';
+document.getElementById('cfPivaCliente').value = '';
+aggiornaTabella();
     calcolaTotali();
     impostaDataOggi();
     pulisciCampiMateriali();
@@ -820,16 +801,43 @@ async function generaPDF() {
 
 const LOGIN_USER = "mattoncino";
 const LOGIN_PASS = "mattoncino123";
-
-document.getElementById("loginError").style.display = "none";
-
 function login() {
   const u = document.getElementById("username").value;
   const p = document.getElementById("password").value;
   if (u === LOGIN_USER && p === LOGIN_PASS) {
-    document.getElementById("loginBox").style.display = "none";
-    document.getElementById("app").style.display = "block";
+} else {
+}
+}
+
+
+// --- Robust login initialization (appended by assistant) ---
+document.addEventListener('DOMContentLoaded', function() {
+  try {
+    var loginError = document.getElementById('loginError');
+    var appEl = document.getElementById('app');
+    var loginBox = document.getElementById('loginBox');
+    if (loginError) loginError.style.display = 'none';
+    if (appEl) appEl.style.display = 'none';
+    if (loginBox) loginBox.style.display = 'block';
+  } catch (e) {
+    console.warn('Login init warning:', e);
+  }
+});
+
+function login() {
+  var LOGIN_USER = window.LOGIN_USER || "mattoncino";
+  var LOGIN_PASS = window.LOGIN_PASS || "mattoncino123";
+  // If this is the template, values may be overridden by window.LOGIN_USER/LOGIN_PASS set elsewhere.
+  var u = document.getElementById('username') ? document.getElementById('username').value : '';
+  var p = document.getElementById('password') ? document.getElementById('password').value : '';
+  var error = document.getElementById('loginError');
+  if (u === LOGIN_USER && p === LOGIN_PASS) {
+    if (document.getElementById('loginBox')) document.getElementById('loginBox').style.display = 'none';
+    if (document.getElementById('app')) document.getElementById('app').style.display = 'block';
+    if (error) error.style.display = 'none';
   } else {
-    document.getElementById("loginError").style.display = "block";
+    if (error) error.style.display = 'block';
   }
 }
+// --- End login block ---
+

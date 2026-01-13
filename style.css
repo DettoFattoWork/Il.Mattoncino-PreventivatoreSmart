@@ -472,3 +472,6 @@ select.form-control {
   color: red;
   display: none;
 }
+
+/* Login text color fix */
+#loginBox, #loginBox h2 { color: #222 !important; }
