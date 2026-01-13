@@ -45,8 +45,7 @@ function formatCurrency(amount) {
 // Inizializzazione dell'applicazione
 document.addEventListener('DOMContentLoaded', async function() {
     console.log('🏗️ IL MATTONCINO S.R.L. - Inizializzazione...');
-    databaseEdile = window.databaseEdile || [];
-    console.log('Database JS caricato:', databaseEdile.length);
+    await caricaDatabase();
     inizializzaApp();
     caricaCategorie();
     impostaDataOggi();
@@ -817,44 +816,3 @@ async function generaPDF() {
         alert('Errore durante la generazione del PDF. Riprova.');
     }
 }
-
-
-// LOGIN
-const LOGIN_USER = "mattoncino";
-const LOGIN_PASS = "mattoncino123";
-
-function login(){
-  const u = document.getElementById("username").value;
-  const p = document.getElementById("password").value;
-
-  if(u === LOGIN_USER && p === LOGIN_PASS){
-    document.getElementById("loginBox").style.display = "none";
-    document.getElementById("app").style.display = "block";
-  } else {
-    document.getElementById("loginError").style.display = "block";
-  }
-}
-
-// ===== LOGIN SEMPLICE – UTENTE UNICO =====
-
-const LOGIN_USER = "admin";
-const LOGIN_PASS = "1234";
-
-function doLogin() {
-  const u = document.getElementById("loginUser").value;
-  const p = document.getElementById("loginPass").value;
-
-  if (u === LOGIN_USER && p === LOGIN_PASS) {
-    localStorage.setItem("logged", "yes");
-    document.getElementById("loginOverlay").style.display = "none";
-  } else {
-    alert("Credenziali errate");
-  }
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  if (localStorage.getItem("logged") === "yes") {
-    const overlay = document.getElementById("loginOverlay");
-    if (overlay) overlay.style.display = "none";
-  }
-});
