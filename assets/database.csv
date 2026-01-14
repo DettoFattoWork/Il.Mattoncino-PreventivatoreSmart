@@ -1,0 +1,14 @@
+Categoria,Sottocategoria,Descrizione,Unità_Misura,Prezzo_Unitario
+OPERE DI DEMOLIZIONE,DEMOLIZIONI,Demolizione di muratura in mattoni pieni o forati compreso lo scarico dei detriti,"mc",45.00
+OPERE DI DEMOLIZIONE,DEMOLIZIONI,Demolizione di pavimenti in ceramica o marmo compreso il sottofondo,"mq",18.00
+OPERE DI DEMOLIZIONE,DEMOLIZIONI,Rimozione di infissi interni o esterni (porte o finestre),"cad",25.00
+OPERE DI MURATURA,MURATURE,Costruzione di muro in mattoni forati da 8 cm,"mq",35.00
+OPERE DI MURATURA,MURATURE,Costruzione di muro in mattoni forati da 12 cm,"mq",42.00
+OPERE DI MURATURA,INTONACI,Intonaco grezzo per interni a base calce e cemento,"mq",16.00
+OPERE DI MURATURA,INTONACI,Intonaco finito a civile per interni,"mq",22.00
+PAVIMENTI E RIVESTIMENTI,POSA,Posa in opera di pavimento in ceramica (escluso materiale),"mq",28.00
+PAVIMENTI E RIVESTIMENTI,POSA,Posa in opera di battiscopa compreso collante,"ml",8.00
+IMPIANTI,ELETTRICO,Punto luce completo di tubazioni e scatole,"cad",45.00
+IMPIANTI,IDRAULICO,Punto acqua (carico e scarico) per bagno o cucina,"cad",180.00
+TINTEGGIATURE,PITTURE,Tinteggiatura con idropittura lavabile due mani previo fissativo,"mq",12.00
+TINTEGGIATURE,PITTURE,Rasatura pareti con stucco (due mani),"mq",14.00
